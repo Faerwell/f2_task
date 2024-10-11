@@ -1,0 +1,6 @@
+[gcode_macro FEED_MATERIAL]
+gcode:
+  SET_PIN PIN=PB0 VALUE=1  # Включить подачу
+  WHILE SENSOR_PA1=0  # Пока верхний датчик не сработает
+    G4 P10  # Задержка 10 мс (можно изменить)
+  SET_PIN PIN=PB0 VALUE=0  # Выключить подачу
